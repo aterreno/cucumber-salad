@@ -1,0 +1,30 @@
+{
+  "name": "cucumber-salad",
+  "version": "0.0.1",
+  "private": "false",
+  "description": "Cucumber.js to test Rest Api example",
+  "keywords": [
+    "cucumber",
+    "rest",
+    "bdd"
+  ],
+  "author": "Antonio Terreno",
+  "license": "",
+  "dependencies": {
+    "express": "^4.10.4"
+  },
+  "devDependencies": {
+    "chalk": "^0.5.1",
+    "cucumber": "0.4.4",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-cucumber": "^0.2.3",
+    "request": "^2.37.0",
+    "should": "^4.3.0",
+    "time-grunt": "^1.0.0",
+    "winston": "^0.8.3"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js"
+  }
+}
