@@ -6,7 +6,7 @@ Feature: Restful Endpoints
 Scenario: Not found endpoints
 	Given A running salad server
   When I request "/"
-  Then I should get back a 404 error
+  Then I should get back a 200
 
 Scenario: Italian Salad
   Given A running salad server

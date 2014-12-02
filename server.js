@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-  res.sendStatus(404);
+  res.sendStatus(200);
 });
 
 app.get('/salad/italian', function (req, res) {
