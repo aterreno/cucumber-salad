@@ -6,6 +6,9 @@ cucumber-salad
 1. Install nvm with the command: 
 
    `curl https://raw.githubusercontent.com/creationix/nvm/v0.18.0/install.sh | bash`
+
+2. Get a decent node.js version
+   `nvm install v0.10.32`
    
 2. Install dependencies
 
