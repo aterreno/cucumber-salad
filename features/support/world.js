@@ -7,7 +7,7 @@ module.exports = function WorldConstructor(callback) {
   var world = {
     request: request,
     app: app,
-    session: {}
+    lastResponse: {}
   };
 
   callback(world);

@@ -21,16 +21,16 @@ module.exports = function () {
   });
 
   this.When(/^I request "([^"]*)"$/, function (endpoint, callback) {
-    this.request.get("http://localhost:3000" + endpoint, this, callback);
+    this.request.get("http://localhost:3000" + endpoint, this, callback);    
   });
 
   this.Then(/^I should get back a (\d+)( error)?$/, function (httpCode, error, callback) {
-    should(this.session.lastResponse.statusCode).beEqual(parseInt(httpCode), callback);
+    should(this.lastResponse.statusCode).beEqual(parseInt(httpCode), callback);
     callback();
   });
 
   this.Then(/^An Italian Salad should have (\d+) tomatoes$/, function (tomatoesNum, callback) {
-    var salad = JSON.parse(this.session.lastResponse.body);
+    var salad = JSON.parse(this.lastResponse.body);
 
     should(salad[0].tomatoes.quantity).beEqual(parseInt(tomatoesNum), callback);
     callback();

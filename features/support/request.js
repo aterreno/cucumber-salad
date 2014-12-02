@@ -1,5 +1,6 @@
 var request = require('request');
 
+//TODO instead of passing self into here, return the response/error, if possible
 module.exports = {
   get: function (endpoint, self, callback) {
 
@@ -9,7 +10,7 @@ module.exports = {
       function (error, response, body) {
 
         if (!error) {
-          self.session.lastResponse = response;
+          self.lastResponse = response;
           callback();
         } else {
           callback.fail("Request Failed: body:" + body + ", error:" + error);
