@@ -15,7 +15,7 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
-      all: ['Gruntfile.js', 'features/**/*.js'],
+      all: ['Gruntfile.js', 'features/**/*.js', "server.js"],
       options: {
         "unused": true,
         "maxerr": 50,
@@ -34,10 +34,6 @@ module.exports = function (grunt) {
       }
     }
   });
-
-  process.env.env = grunt.option('env') || 'test';
-
-  process.env.debug = grunt.option('debug') || false;
 
   grunt.registerTask('default', 'jshint', 'cucumberjs');
 };
