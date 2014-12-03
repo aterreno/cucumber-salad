@@ -1,14 +1,26 @@
-var request = require('./request');
-var app = require('../../server');
-require('./cucumberShould');
+require('../support/cucumberShould');
 
-module.exports = function WorldConstructor(callback) {
+module.exports = function World(callback) {
 
-  var world = {
-    request: request,
-    app: app,
-    lastResponse: {}
-  };
+  var self = this;
+  var lastResponse;
+  var request = require('request');
 
-  callback(world);
+  this.get = function (endpoint, callback) {
+    request.get({
+        url: endpoint
+      },
+      function (error, response, body) {
+        if (!error) {
+          self.lastResponse = response;
+          callback();
+        } else {
+          callback.fail("Request Failed: body:" + body + ", error:" + error);
+        }
+      }
+    );
+  }
+
+  this.app = require('../../server');
+  callback(this);
 };

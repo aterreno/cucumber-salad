@@ -21,7 +21,7 @@ module.exports = function () {
   });
 
   this.When(/^I request "([^"]*)"$/, function (endpoint, callback) {
-    this.request.get("http://localhost:3000" + endpoint, this, callback);    
+    this.get("http://localhost:3000" + endpoint, callback);    
   });
 
   this.Then(/^I should get back a (\d+)( error)?$/, function (httpCode, error, callback) {
