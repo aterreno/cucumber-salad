@@ -34,6 +34,6 @@ app.get('/salad/italian', function (req, res) {
 if (!module.parent) {
   app.listen(process.env.PORT || 3000);
   console.log('I am up');
-};
+}
 
 module.exports = app;

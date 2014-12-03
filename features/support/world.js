@@ -2,8 +2,7 @@ require('../support/cucumberShould');
 
 module.exports = function World(callback) {
 
-  var self = this;
-  var lastResponse;
+  var self = this; 
   var request = require('request');
 
   this.get = function (endpoint, callback) {
@@ -19,7 +18,7 @@ module.exports = function World(callback) {
         }
       }
     );
-  }
+  };
 
   this.app = require('../../server');
   callback(this);
