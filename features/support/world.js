@@ -20,6 +20,5 @@ module.exports = function World(callback) {
     );
   };
 
-  this.app = require('../../server');
   callback(this);
 };
