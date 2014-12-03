@@ -4,16 +4,12 @@ module.exports = function () {
 
   this.World = require("../support/world.js");
 
-  this.Before(function (callback) {
-    this.server = this.app.listen(process.env.PORT || 3000, function () {
+  var server;
+
+  this.BeforeFeatures(function (event, callback) {
+    server = require('../../server').listen(process.env.PORT || 3000, function () {
       callback();
     });
-  });
-
-  this.After(function (callback) {
-    this.server.close(function() {
-      callback();  
-    });    
   });
 
   this.Given(/^A running salad server$/, function (callback) {
@@ -21,7 +17,7 @@ module.exports = function () {
   });
 
   this.When(/^I request "([^"]*)"$/, function (endpoint, callback) {
-    this.get("http://localhost:3000" + endpoint, callback);    
+    this.get("http://localhost:3000" + endpoint, callback);
   });
 
   this.Then(/^I should get back a (\d+)( error)?$/, function (httpCode, error, callback) {
@@ -35,4 +31,11 @@ module.exports = function () {
     should(salad[0].tomatoes.quantity).beEqual(parseInt(tomatoesNum), callback);
     callback();
   });
+
+  this.AfterFeatures(function (event, callback) {
+    server.close(function () {
+      callback();
+    });
+  });
+
 };
